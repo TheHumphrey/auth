@@ -90,7 +90,7 @@ class authService {
           storageService.clearTokens()
           return Promise.resolve()
         } else {
-          return Promise.reject('Falha')
+          return Promise.reject<string>(response.status)
         }
       })
       .catch((error) => {
@@ -108,7 +108,7 @@ class authService {
         if (response.status === 200) {
           return Promise.resolve()
         } else {
-          return Promise.reject<string>('Login não existe')
+          return Promise.reject<string>(response.status)
         }
       })
       .catch((error) => {
@@ -128,7 +128,6 @@ class authService {
     })
       .then(async (response) => {
         if (response.status === 200) {
-          let dataUser: IAuth = user
           await response.json().then((data) => {
             const { accessToken, refreshToken }: IAuth = data
             storageService.setUsuarioAutenticado({
@@ -136,11 +135,10 @@ class authService {
               accessToken,
               refreshToken
             })
-            dataUser = { ...user, accessToken, refreshToken }
           })
-          return Promise.resolve(dataUser)
+          return Promise.resolve<number>(response.status)
         } else {
-          return Promise.reject<string>('Erro ao realizar renew')
+          return Promise.reject<string>(response.status)
         }
       })
       .catch((error) => {
@@ -159,9 +157,9 @@ class authService {
     })
       .then(async (response) => {
         if (response.status === 200) {
-          return Promise.resolve()
+          return Promise.resolve<number>(response.status)
         } else {
-          return Promise.reject<string>('Erro ao realizar renew')
+          return Promise.reject<string>(response.status)
         }
       })
       .catch((error) => {
