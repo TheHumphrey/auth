@@ -1,30 +1,112 @@
-# auth
+# AuthService
 
-> auth package
+---
 
-[![NPM](https://img.shields.io/npm/v/auth.svg)](https://www.npmjs.com/package/auth) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+# Install
 
-## Install
+Install from the command line:
 
-```bash
-npm install --save auth
+#### NPM
+
+```
+npm install ...
 ```
 
-## Usage
+#### Yarn
 
-```tsx
-import React, { Component } from 'react'
+```
+yarn add ...
+```
 
-import MyComponent from 'auth'
-import 'auth/dist/index.css'
+Install via package.json:
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
+```
+...
+```
+
+---
+
+# Fuctions
+
+signInWithUsernameAndPassword( email: string, password: string );
+
+signOut( );
+
+emailExists( email: string );
+
+renew( );
+
+---
+
+# Example
+
+### Import Service and create a instance
+
+```typescript
+  import AuthWayService from '@thehumphrey/learningpackage';
+
+  const MyComponent = (): ReactElement => {
+    const myUrl = "http://localhost:3000"
+    const authService = new AuthWayService(myUrl);
+
+    return <h1>Hello World<h1/>:
   }
-}
 ```
 
-## License
+### Services functions
 
-MIT © [TheHumphrey](https://github.com/TheHumphrey)
+#### Email Exist
+
+```typescript
+const email = 'teste@gmail.com'
+authService
+  .loginExists(email)
+  .then(() => {
+    //your code if request is ok
+  })
+  .catch((error) => {
+    //your code if request if fail
+  })
+```
+
+#### Login (signInWithUsernameAndPassword)
+
+```typescript
+const email = 'teste@gmail.com'
+const password = '123'
+
+authService
+  .signInWithUsernameAndPassword(email, password)
+  .then((response) => {
+    //your code if request is ok
+  })
+  .catch((error) => {
+    //your code if request if fail
+  })
+```
+
+#### SignOut
+
+```typescript
+authService
+  .signOut()
+  .then(() => {
+    //your code if request is ok
+  })
+  .catch((error) => {
+    //your code if request if fail
+  })
+```
+
+#### ReNew
+
+```typescript
+authService
+  .renew()
+  .then(() => {
+    //your code if request is ok
+  })
+  .catch((error) => {
+    //your code if request if fail
+  })
+```
