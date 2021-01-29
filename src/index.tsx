@@ -1,10 +1,6 @@
-import * as React from 'react'
-import styles from './styles.module.css'
+import auth from './requests/authService'
+import { IAuth, ISessao, IUserResponse, IUsuario } from './requests/types/types'
 
-interface Props {
-  text: string
-}
+export default auth
 
-export const ExampleComponent = ({ text }: Props) => {
-  return <div className={styles.test}>Example Component: {text}</div>
-}
+export { IAuth, ISessao, IUserResponse, IUsuario }
