@@ -90,7 +90,7 @@ class authService {
           storageService.clearTokens()
           return Promise.resolve()
         } else {
-          return Promise.reject<string>(response.status)
+          return Promise.reject('fail')
         }
       })
       .catch((error) => {
