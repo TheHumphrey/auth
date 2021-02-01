@@ -136,7 +136,7 @@ class authService {
               refreshToken
             })
           })
-          return Promise.resolve<number>(response.status)
+          return Promise.resolve()
         } else {
           return Promise.reject<string>(response.status)
         }
