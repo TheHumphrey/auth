@@ -30,6 +30,15 @@ const App = () => {
       })
 
     await auth
+      .validateToken()
+      .then(() => {
+        console.log('Validado com sucesso')
+      })
+      .catch(() => {
+        console.log('Validate fail')
+      })
+
+    await auth
       .renew()
       .then(() => {
         console.log('ReNew Funcionou!')

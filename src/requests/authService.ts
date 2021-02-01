@@ -13,6 +13,7 @@ const login = '/v1/login'
 const logOut = '/v1/sessao/revoke'
 const loginExist = '/v1/usuario/loginexists'
 const renewurl = '/v1/accesstoken/renew'
+const validade = '/v1/accesstoken/validate'
 
 const storageService = new WayTokenService()
 
@@ -148,16 +149,15 @@ class authService {
 
   async validateToken(): Promise<any> {
     const user = storageService.getUsuarioAutenticado()
-    await fetch(this.urlAuth + renewurl, {
-      method: 'POST',
+    await fetch(this.urlAuth + validade, {
+      method: 'GET',
       headers: new Headers({
-        Authorization: `Bearer ${user.accessToken}`,
-        'content-type': 'application/json'
+        Authorization: `Bearer ${user.accessToken}`
       })
     })
       .then(async (response) => {
         if (response.status === 200) {
-          return Promise.resolve<number>(response.status)
+          return Promise.resolve()
         } else {
           return Promise.reject<string>(response.status)
         }
