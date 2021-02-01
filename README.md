@@ -43,11 +43,11 @@ renew( );
 ### Import Service and create a instance
 
 ```typescript
-  import AuthWayService from '@thehumphrey/learningpackage';
+  import auth from '{Package name}';
 
   const MyComponent = (): ReactElement => {
     const myUrl = "http://localhost:3000"
-    const authService = new AuthWayService(myUrl);
+    const authService = new auth(myUrl);
 
     return <h1>Hello World<h1/>:
   }
