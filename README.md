@@ -9,19 +9,19 @@ Install from the command line:
 #### NPM
 
 ```
-npm install ...
+npm install @thehumphrey/auth@1.0.0
 ```
 
 #### Yarn
 
 ```
-yarn add ...
+yarn add @thehumphrey/auth@1.0.0
 ```
 
 Install via package.json:
 
 ```
-...
+"@thehumphrey/auth": "1.0.0"
 ```
 
 ---
@@ -43,7 +43,7 @@ renew( );
 ### Import Service and create a instance
 
 ```typescript
-  import auth from '{Package name}';
+  import auth from '@thehumphrey/auth';
 
   const MyComponent = (): ReactElement => {
     const myUrl = "http://localhost:3000"
