@@ -1,10 +1,16 @@
 {
-  "name": "auth",
+  "name": "@thehumphrey/auth",
   "version": "1.0.0",
   "description": "auth package",
   "author": "TheHumphrey",
   "license": "MIT",
-  "repository": "TheHumphrey/auth",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheHumphrey/auth.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
