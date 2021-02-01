@@ -9,19 +9,19 @@ Install from the command line:
 #### NPM
 
 ```
-npm install @thehumphrey/auth@1.0.0
+npm install @thehumphrey/auth@1.0.2
 ```
 
 #### Yarn
 
 ```
-yarn add @thehumphrey/auth@1.0.0
+yarn add @thehumphrey/auth@1.0.2
 ```
 
 Install via package.json:
 
 ```
-"@thehumphrey/auth": "1.0.0"
+"@thehumphrey/auth": "1.0.2"
 ```
 
 ---
