@@ -80,7 +80,7 @@ class authService {
 
   async signOut(): Promise<any> {
     const user = storageService.getUsuarioAutenticado()
-    await fetch(this.urlAuth + logOut, {
+    await fetch(this.urlAuth + logOut + '/' + user.sessao, {
       method: 'PUT',
       headers: {
         Authorization: `Bearer ${user.accessToken}`
