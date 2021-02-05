@@ -80,7 +80,7 @@ class authService {
 
   async signOut(): Promise<any> {
     const user = storageService.getUsuarioAutenticado()
-    await fetch(this.urlAuth + logOut + '/' + user.sessao, {
+    return await fetch(this.urlAuth + logOut + '/' + user.sessao, {
       method: 'PUT',
       headers: {
         Authorization: `Bearer ${user.accessToken}`
@@ -100,7 +100,7 @@ class authService {
   }
 
   async emailExists(login: string): Promise<any> {
-    await fetch(this.urlAuth + loginExist, {
+    return await fetch(this.urlAuth + loginExist, {
       method: 'POST',
       headers: new Headers({ 'content-type': 'application/json' }),
       body: JSON.stringify({ email: login })
@@ -122,7 +122,7 @@ class authService {
   async renew(): Promise<any> {
     const user = storageService.getUsuarioAutenticado()
 
-    await fetch(this.urlAuth + renewurl, {
+    return await fetch(this.urlAuth + renewurl, {
       method: 'POST',
       headers: new Headers({ 'content-type': 'application/json' }),
       body: JSON.stringify(user)
@@ -149,7 +149,7 @@ class authService {
 
   async validateToken(): Promise<any> {
     const user = storageService.getUsuarioAutenticado()
-    await fetch(this.urlAuth + validade, {
+    return await fetch(this.urlAuth + validade, {
       method: 'GET',
       headers: new Headers({
         Authorization: `Bearer ${user.accessToken}`
